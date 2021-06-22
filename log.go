@@ -1,4 +1,4 @@
-package server
+package core
 
 import (
 	loglfshook "github.com/mgr9525/logrus-file-hook"
