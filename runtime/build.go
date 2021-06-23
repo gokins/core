@@ -19,6 +19,7 @@ type Build struct {
 	Updated   time.Time         `json:"updated"`
 	Before    string            `json:"before"`
 	After     string            `json:"after"`
+	Stages    []*Stage          `json:"stages"`
 }
 
 type Stage struct {
@@ -29,6 +30,7 @@ type Stage struct {
 	DisplayName string            `json:"displayName" `
 	Stage       string            `json:"stage"`
 	Status      string            `json:"status"`
+	Event       string            `json:"event"`
 	Error       string            `json:"error"`
 	ExitCode    int               `json:"exit_code"`
 	Started     time.Time         `json:"started"`
@@ -55,6 +57,7 @@ type Step struct {
 	Command         string            `json:"'command'"`
 	Number          int               `json:"number"`
 	Status          string            `json:"status"`
+	Event           string            `json:"event"`
 	Error           string            `json:"error,omitempty"`
 	ErrIgnore       bool              `json:"errignore,omitempty"`
 	ExitCode        int               `json:"exit_code"`
@@ -66,7 +69,6 @@ type Step struct {
 	Image           string            `json:"image"`
 	Artifacts       []*Artifact       `json:"artifacts"`
 	DependArtifacts []*DependArtifact `json:"dependArtifacts"`
-	Plugined        bool              `json:"plugined"`
 }
 
 type Artifact struct {
