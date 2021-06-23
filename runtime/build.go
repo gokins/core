@@ -28,7 +28,7 @@ type Repository struct {
 	Name     string `yaml:"name"`
 	Token    string `yaml:"token"`
 	Sha      string `yaml:"sha"`
-	CloneUrl string `yaml:"cloneUrl"`
+	CloneURL string `yaml:"cloneUrl"`
 }
 
 type Stage struct {
