@@ -3,117 +3,118 @@ package runtime
 import "time"
 
 type Build struct {
-	Id        string            `json:"id"`
-	Trigger   string            `json:"trigger"`
-	Status    string            `json:"status"`
-	Ref       string            `json:"ref"`
-	Error     string            `json:"error,omitempty"`
-	Event     string            `json:"event"`
-	Timestamp time.Time         `json:"timestamp"`
-	Title     string            `json:"title,omitempty"`
-	Message   string            `json:"message"`
-	Params    map[string]string `json:"params,omitempty"`
-	Started   time.Time         `json:"started"`
-	Finished  time.Time         `json:"finished"`
-	Created   time.Time         `json:"created"`
-	Updated   time.Time         `json:"updated"`
-	Before    string            `json:"before"`
-	After     string            `json:"after"`
-	Stages    []*Stage          `json:"stages"`
+	Id        string            `yaml:"id"`
+	Trigger   string            `yaml:"trigger"`
+	Status    string            `yaml:"status"`
+	Ref       string            `yaml:"ref"`
+	Error     string            `yaml:"error,omitempty"`
+	Event     string            `yaml:"event"`
+	Timestamp time.Time         `yaml:"timestamp"`
+	Title     string            `yaml:"title,omitempty"`
+	Message   string            `yaml:"message"`
+	Params    map[string]string `yaml:"params,omitempty"`
+	Started   time.Time         `yaml:"started"`
+	Finished  time.Time         `yaml:"finished"`
+	Created   time.Time         `yaml:"created"`
+	Updated   time.Time         `yaml:"updated"`
+	Before    string            `yaml:"before"`
+	After     string            `yaml:"after"`
+	Variables map[string]string `yaml:"variables"`
+	Stages    []*Stage          `yaml:"stages"`
 }
 
 type Stage struct {
-	Id          string            `json:"id"`
-	PipelineId  string            `json:"pipelineId"`
-	BuildId     string            `json:"buildId"`
-	Name        string            `json:"name"`
-	DisplayName string            `json:"displayName" `
-	Stage       string            `json:"stage"`
-	Status      string            `json:"status"`
-	Event       string            `json:"event"`
-	Error       string            `json:"error"`
-	ExitCode    int               `json:"exit_code"`
-	Started     time.Time         `json:"started"`
-	Stopped     time.Time         `json:"stopped"`
-	Finished    time.Time         `json:"finished"`
-	Created     time.Time         `json:"created"`
-	Updated     time.Time         `json:"updated"`
-	Version     string            `json:"version"`
-	OnSuccess   bool              `json:"on_success"`
-	OnFailure   bool              `json:"on_failure"`
-	Labels      map[string]string `json:"labels"`
+	Id          string            `yaml:"id"`
+	PipelineId  string            `yaml:"pipelineId"`
+	BuildId     string            `yaml:"buildId"`
+	Name        string            `yaml:"name"`
+	DisplayName string            `yaml:"displayName" `
+	Stage       string            `yaml:"stage"`
+	Status      string            `yaml:"status"`
+	Event       string            `yaml:"event"`
+	Error       string            `yaml:"error"`
+	ExitCode    int               `yaml:"exit_code"`
+	Started     time.Time         `yaml:"started"`
+	Stopped     time.Time         `yaml:"stopped"`
+	Finished    time.Time         `yaml:"finished"`
+	Created     time.Time         `yaml:"created"`
+	Updated     time.Time         `yaml:"updated"`
+	Version     string            `yaml:"version"`
+	OnSuccess   bool              `yaml:"on_success"`
+	OnFailure   bool              `yaml:"on_failure"`
+	Labels      map[string]string `yaml:"labels"`
 	Steps       []*Step           `yaml:"steps"`
 }
 
 type Step struct {
-	Id              string            `json:"id"`
-	StageId         string            `json:"stageId"`
-	BuildId         string            `json:"buildId"`
-	Step            string            `json:"step"`
-	DisplayName     string            `json:"displayName"`
-	Name            string            `son:"name"`
-	Environments    map[string]string `json:"environments"`
-	Commands        []interface{}     `yaml:"commands" json:"-"`
-	Command         string            `json:"'command'"`
-	Number          int               `json:"number"`
-	Status          string            `json:"status"`
-	Event           string            `json:"event"`
-	Error           string            `json:"error,omitempty"`
-	ErrIgnore       bool              `json:"errignore,omitempty"`
-	ExitCode        int               `json:"exit_code"`
-	Started         time.Time         `json:"started,omitempty"`
-	Stopped         time.Time         `json:"stopped,omitempty"`
-	Finished        time.Time         `json:"finished"`
-	Version         string            `json:"version"`
-	DependsOn       []string          `json:"dependsOn"`
-	Image           string            `json:"image"`
-	Artifacts       []*Artifact       `json:"artifacts"`
-	DependArtifacts []*DependArtifact `json:"dependArtifacts"`
+	Id              string            `yaml:"id"`
+	StageId         string            `yaml:"stageId"`
+	BuildId         string            `yaml:"buildId"`
+	Step            string            `yaml:"step"`
+	DisplayName     string            `yaml:"displayName"`
+	Name            string            `yaml:"name"`
+	Environments    map[string]string `yaml:"environments"`
+	Commands        interface{}       `yaml:"commands"`
+	Number          int               `yaml:"number"`
+	Status          string            `yaml:"status"`
+	Event           string            `yaml:"event"`
+	Error           string            `yaml:"error,omitempty"`
+	ErrIgnore       bool              `yaml:"errignore,omitempty"`
+	ExitCode        int               `yaml:"exit_code"`
+	Started         time.Time         `yaml:"started,omitempty"`
+	Stopped         time.Time         `yaml:"stopped,omitempty"`
+	Finished        time.Time         `yaml:"finished"`
+	Version         string            `yaml:"version"`
+	DependsOn       []string          `yaml:"dependsOn"`
+	Image           string            `yaml:"image"`
+	Artifacts       []*Artifact       `yaml:"artifacts"`
+	DependArtifacts []*DependArtifact `yaml:"dependArtifacts"`
+	Plugined        bool              `yaml:"plugined"`
 }
 
 type Artifact struct {
-	Id        string
-	BuildId   string    `json:"buildId"`
-	StageId   string    `json:"stageId"`
-	JobId     string    `json:"stepId"`
-	BuildName string    `json:"buildName"`
-	StageName string    `json:"stageName"`
-	JobName   string    `json:"stepName"`
-	Status    string    `json:"status"`
-	Created   time.Time `json:"created"`
-	Updated   time.Time `json:"updated"`
+	Id        string    `yaml:"id"`
+	BuildId   string    `yaml:"buildId"`
+	StageId   string    `yaml:"stageId"`
+	JobId     string    `yaml:"stepId"`
+	BuildName string    `yaml:"buildName"`
+	StageName string    `yaml:"stageName"`
+	JobName   string    `yaml:"stepName"`
+	Status    string    `yaml:"status"`
+	Created   time.Time `yaml:"created"`
+	Updated   time.Time `yaml:"updated"`
 
-	Name  string `json:"name"`
-	Scope string `json:"scope"`
-	Path  string `json:"path"`
+	Name  string `yaml:"name"`
+	Scope string `yaml:"scope"`
+	Path  string `yaml:"path"`
 
-	Artifactory string `json:"artifactory"`
-	Repository  string `json:"repository"`
+	Artifactory string `yaml:"artifactory"`
+	Repository  string `yaml:"repository"`
 
-	Value string `json:"value"`
+	Value string `yaml:"value"`
 }
 
 type DependArtifact struct {
-	Id        string
-	BuildId   string    `json:"buildId"`
-	StageId   string    `json:"stageId"`
-	JobId     string    `json:"stepId"`
-	BuildName string    `json:"buildName"`
-	StageName string    `json:"stageName"`
-	JobName   string    `json:"stepName"`
-	Status    string    `json:"status"`
-	Created   time.Time `json:"created"`
-	Updated   time.Time `json:"updated"`
+	Id        string    `yaml:"id"`
+	BuildId   string    `yaml:"buildId"`
+	StageId   string    `yaml:"stageId"`
+	JobId     string    `yaml:"stepId"`
+	BuildName string    `yaml:"buildName"`
+	StageName string    `yaml:"stageName"`
+	JobName   string    `yaml:"stepName"`
+	Status    string    `yaml:"status"`
+	Created   time.Time `yaml:"created"`
+	Updated   time.Time `yaml:"updated"`
 
-	Name        string `json:"name"`
-	Type        string `json:"type"`
-	IsForce     bool   `json:"isForce"`
-	Artifactory string `json:"artifactory"`
-	Repository  string `json:"repository"`
-	Target      string `json:"target"`
+	Name        string `yaml:"name"`
+	Type        string `yaml:"type"`
+	IsForce     bool   `yaml:"isForce"`
+	Artifactory string `yaml:"artifactory"`
+	Repository  string `yaml:"repository"`
+	Target      string `yaml:"target"`
 
-	SourceStage string `json:"sourceStage"`
-	SourceJob   string `json:"sourceStep"`
+	SourceStage string `yaml:"sourceStage"`
+	SourceJob   string `yaml:"sourceStep"`
 
-	Value string `json:"value"`
+	Value string `yaml:"value"`
 }
