@@ -6,8 +6,10 @@ import (
 	"path/filepath"
 )
 
-func InitLog() {
-	path := filepath.Join(WorkPath, "logs")
+var Debug = false
+
+func InitLog(pth string) {
+	path := filepath.Join(pth, "logs")
 	pmp := loglfshook.PathMap{
 		logrus.InfoLevel:  filepath.Join(path, "info.log"),
 		logrus.WarnLevel:  filepath.Join(path, "warn.log"),
