@@ -69,7 +69,7 @@ type Step struct {
 	Image           string            `yaml:"image"`
 	Artifacts       []*Artifact       `yaml:"artifacts"`
 	DependArtifacts []*DependArtifact `yaml:"dependArtifacts"`
-	Plugined        bool              `yaml:"plugined"`
+	IsClone         bool              `yaml:"isClone"`
 }
 
 type Artifact struct {
