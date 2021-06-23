@@ -70,6 +70,7 @@ type Step struct {
 	Artifacts       []*Artifact       `yaml:"artifacts"`
 	DependArtifacts []*DependArtifact `yaml:"dependArtifacts"`
 	IsClone         bool              `yaml:"isClone"`
+	RepoPath        string            `yaml:"repoPath"`
 }
 
 type Artifact struct {
