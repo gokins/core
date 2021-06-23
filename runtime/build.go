@@ -19,8 +19,16 @@ type Build struct {
 	Updated   time.Time         `yaml:"updated"`
 	Before    string            `yaml:"before"`
 	After     string            `yaml:"after"`
+	Repo      *Repository       `yaml:"repo"`
 	Variables map[string]string `yaml:"variables"`
 	Stages    []*Stage          `yaml:"stages"`
+}
+
+type Repository struct {
+	Name     string `yaml:"name"`
+	Token    string `yaml:"token"`
+	Sha      string `yaml:"sha"`
+	CloneUrl string `yaml:"cloneUrl"`
 }
 
 type Stage struct {
