@@ -16,6 +16,7 @@ const (
 	BuildEventGetRepo    = "err_get_repo"
 	BuildEventCheckParam = "err_check_param"
 	BuildEventPutJob     = "err_put_job"
+	BuildEventJobCmds    = "err_job_cmds"
 )
 
 func BuildStatusEnded(stat string) bool {

@@ -63,12 +63,11 @@ type Step struct {
 	Name            string            `yaml:"name"`
 	Environments    map[string]string `yaml:"environments"`
 	Commands        interface{}       `yaml:"commands"`
-	Number          int               `yaml:"number"`
 	Status          string            `yaml:"status"`
 	Event           string            `yaml:"event"`
 	Error           string            `yaml:"error,omitempty"`
-	ErrIgnore       bool              `yaml:"errignore,omitempty"`
 	ExitCode        int               `yaml:"exit_code"`
+	ErrIgnore       bool              `yaml:"errignore,omitempty"`
 	Started         time.Time         `yaml:"started,omitempty"`
 	Stopped         time.Time         `yaml:"stopped,omitempty"`
 	Finished        time.Time         `yaml:"finished"`
@@ -77,12 +76,10 @@ type Step struct {
 	Image           string            `yaml:"image"`
 	Artifacts       []*Artifact       `yaml:"artifacts"`
 	DependArtifacts []*DependArtifact `yaml:"dependArtifacts"`
-	IsClone         bool              `yaml:"isClone"`
-	RepoPath        string            `yaml:"repoPath"`
 }
 
 type Artifact struct {
-	Id        string    `yaml:"id"`
+	//Id        string    `yaml:"id"`
 	BuildId   string    `yaml:"buildId"`
 	StageId   string    `yaml:"stageId"`
 	JobId     string    `yaml:"stepId"`
@@ -104,7 +101,7 @@ type Artifact struct {
 }
 
 type DependArtifact struct {
-	Id        string    `yaml:"id"`
+	//Id        string    `yaml:"id"`
 	BuildId   string    `yaml:"buildId"`
 	StageId   string    `yaml:"stageId"`
 	JobId     string    `yaml:"stepId"`
