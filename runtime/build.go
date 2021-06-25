@@ -8,12 +8,12 @@ type Build struct {
 	Trigger    string            `yaml:"trigger"`
 	Status     string            `yaml:"status"`
 	Ref        string            `yaml:"ref"`
-	Error      string            `yaml:"error,omitempty"`
+	Error      string            `yaml:"error"`
 	Event      string            `yaml:"event"`
 	Timestamp  time.Time         `yaml:"timestamp"`
-	Title      string            `yaml:"title,omitempty"`
+	Title      string            `yaml:"title"`
 	Message    string            `yaml:"message"`
-	Params     map[string]string `yaml:"params,omitempty"`
+	Params     map[string]string `yaml:"params"`
 	Started    time.Time         `yaml:"started"`
 	Finished   time.Time         `yaml:"finished"`
 	Created    time.Time         `yaml:"created"`
@@ -41,23 +41,23 @@ type Stage struct {
 	Status      string            `yaml:"status"`
 	Event       string            `yaml:"event"`
 	Error       string            `yaml:"error"`
-	ExitCode    int               `yaml:"exit_code"`
+	ExitCode    int               `yaml:"exitCode"`
 	Started     time.Time         `yaml:"started"`
 	Stopped     time.Time         `yaml:"stopped"`
 	Finished    time.Time         `yaml:"finished"`
 	Created     time.Time         `yaml:"created"`
 	Updated     time.Time         `yaml:"updated"`
 	Version     string            `yaml:"version"`
-	OnSuccess   bool              `yaml:"on_success"`
-	OnFailure   bool              `yaml:"on_failure"`
+	OnSuccess   bool              `yaml:"onSuccess"`
+	OnFailure   bool              `yaml:"onFailure"`
 	Labels      map[string]string `yaml:"labels"`
 	Steps       []*Step           `yaml:"steps"`
 }
 
 type Step struct {
 	Id              string            `yaml:"id"`
-	StageId         string            `yaml:"stageId"`
 	BuildId         string            `yaml:"buildId"`
+	StageId         string            `yaml:"stageId"`
 	Step            string            `yaml:"step"`
 	DisplayName     string            `yaml:"displayName"`
 	Name            string            `yaml:"name"`
@@ -65,11 +65,11 @@ type Step struct {
 	Commands        interface{}       `yaml:"commands"`
 	Status          string            `yaml:"status"`
 	Event           string            `yaml:"event"`
-	Error           string            `yaml:"error,omitempty"`
-	ExitCode        int               `yaml:"exit_code"`
-	ErrIgnore       bool              `yaml:"errignore,omitempty"`
-	Started         time.Time         `yaml:"started,omitempty"`
-	Stopped         time.Time         `yaml:"stopped,omitempty"`
+	Error           string            `yaml:"error"`
+	ExitCode        int               `yaml:"exitCode"`
+	ErrIgnore       bool              `yaml:"errignore"`
+	Started         time.Time         `yaml:"started"`
+	Stopped         time.Time         `yaml:"stopped"`
 	Finished        time.Time         `yaml:"finished"`
 	Version         string            `yaml:"version"`
 	DependsOn       []string          `yaml:"dependsOn"`

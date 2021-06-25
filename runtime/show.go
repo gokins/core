@@ -3,40 +3,48 @@ package runtime
 import "time"
 
 type BuildShow struct {
-	Id         string       `yaml:"id"`
-	PipelineId string       `yaml:"pipelineId"`
-	Status     string       `yaml:"status"`
-	Error      string       `yaml:"error,omitempty"`
-	Event      string       `yaml:"event"`
-	Started    time.Time    `yaml:"started"`
-	Finished   time.Time    `yaml:"finished"`
-	Created    time.Time    `yaml:"created"`
-	Updated    time.Time    `yaml:"updated"`
-	Stages     []*StageShow `yaml:"stages"`
+	Id         string       `json:"id"`
+	PipelineId string       `json:"pipelineId"`
+	Status     string       `json:"status"`
+	Error      string       `json:"error"`
+	Event      string       `json:"event"`
+	Started    time.Time    `json:"started"`
+	Finished   time.Time    `json:"finished"`
+	Created    time.Time    `json:"created"`
+	Updated    time.Time    `json:"updated"`
+	Stages     []*StageShow `json:"stages"`
 }
 
 type StageShow struct {
-	Id       string      `yaml:"id"`
-	BuildId  string      `yaml:"buildId"`
-	Status   string      `yaml:"status"`
-	Event    string      `yaml:"event"`
-	Error    string      `yaml:"error"`
-	Started  time.Time   `yaml:"started"`
-	Stopped  time.Time   `yaml:"stopped"`
-	Finished time.Time   `yaml:"finished"`
-	Created  time.Time   `yaml:"created"`
-	Updated  time.Time   `yaml:"updated"`
-	Steps    []*StepShow `yaml:"steps"`
+	Id       string      `json:"id"`
+	BuildId  string      `json:"buildId"`
+	Status   string      `json:"status"`
+	Event    string      `json:"event"`
+	Error    string      `json:"error"`
+	Started  time.Time   `json:"started"`
+	Stopped  time.Time   `json:"stopped"`
+	Finished time.Time   `json:"finished"`
+	Created  time.Time   `json:"created"`
+	Updated  time.Time   `json:"updated"`
+	Steps    []*StepShow `json:"steps"`
 }
 type StepShow struct {
-	Id       string    `yaml:"id"`
-	StageId  string    `yaml:"stageId"`
-	BuildId  string    `yaml:"buildId"`
-	Status   string    `yaml:"status"`
-	Event    string    `yaml:"event"`
-	Error    string    `yaml:"error,omitempty"`
-	ExitCode int       `yaml:"exit_code"`
-	Started  time.Time `yaml:"started,omitempty"`
-	Stopped  time.Time `yaml:"stopped,omitempty"`
-	Finished time.Time `yaml:"finished"`
+	Id       string    `json:"id"`
+	BuildId  string    `json:"buildId"`
+	StageId  string    `json:"stageId"`
+	Status   string    `json:"status"`
+	Event    string    `json:"event"`
+	Error    string    `json:"error"`
+	ExitCode int       `json:"exitCode"`
+	Started  time.Time `json:"started"`
+	Stopped  time.Time `json:"stopped"`
+	Finished time.Time `json:"finished"`
+}
+type CmdShow struct {
+	Id       string    `json:"id"`
+	BuildId  string    `json:"buildId"`
+	StepId   string    `json:"stageId"`
+	Status   string    `json:"status"`
+	Started  time.Time `json:"started"`
+	Finished time.Time `json:"finished"`
 }
