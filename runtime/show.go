@@ -39,6 +39,7 @@ type StepShow struct {
 	Started  time.Time  `json:"started"`
 	Stopped  time.Time  `json:"stopped"`
 	Finished time.Time  `json:"finished"`
+	Updated  time.Time  `json:"updated"`
 	Cmds     []*CmdShow `json:"cmds"`
 }
 type CmdShow struct {
