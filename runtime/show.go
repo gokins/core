@@ -29,21 +29,20 @@ type StageShow struct {
 	Steps    []*StepShow `json:"steps"`
 }
 type StepShow struct {
-	Id       string    `json:"id"`
-	BuildId  string    `json:"buildId"`
-	StageId  string    `json:"stageId"`
-	Status   string    `json:"status"`
-	Event    string    `json:"event"`
-	Error    string    `json:"error"`
-	ExitCode int       `json:"exitCode"`
-	Started  time.Time `json:"started"`
-	Stopped  time.Time `json:"stopped"`
-	Finished time.Time `json:"finished"`
+	Id       string     `json:"id"`
+	BuildId  string     `json:"buildId"`
+	StageId  string     `json:"stageId"`
+	Status   string     `json:"status"`
+	Event    string     `json:"event"`
+	Error    string     `json:"error"`
+	ExitCode int        `json:"exitCode"`
+	Started  time.Time  `json:"started"`
+	Stopped  time.Time  `json:"stopped"`
+	Finished time.Time  `json:"finished"`
+	Cmds     []*CmdShow `json:"cmds"`
 }
 type CmdShow struct {
 	Id       string    `json:"id"`
-	BuildId  string    `json:"buildId"`
-	StepId   string    `json:"stageId"`
 	Status   string    `json:"status"`
 	Started  time.Time `json:"started"`
 	Finished time.Time `json:"finished"`
