@@ -33,7 +33,10 @@ func Struct2Struct(dst, src interface{}) error {
 
 		tags := strings.Split(fdTyp.Tag.Get("convs"), ",")
 		srcFnm := fdTyp.Name
-		if tags[0] != "" {
+		if len(tags) > 0 && tags[0] != "" {
+			if tags[0] == "-" {
+				continue
+			}
 			srcFnm = tags[0]
 		}
 		//srcfdTyp:=dstVlf.Type()
