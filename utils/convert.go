@@ -96,7 +96,27 @@ func saveSet(dst, src reflect.Value) (rterr error) {
 	return nil
 }
 
-/*func Map2Struct() {
+/*func Map2Struct(dst, src interface{})error {
+	if dst == nil || src == nil {
+		return errors.New("param err")
+	}
+	dstVlf := reflect.ValueOf(dst)
+	srcVlf := reflect.ValueOf(src)
+	if dstVlf.Type().Kind() != reflect.Ptr {
+		//dstVlf=dstVlf.Elem()
+		return errors.New("dst must ptr")
+	}
+	dstVlf = dstVlf.Elem()
+	if srcVlf.Type().Kind() == reflect.Ptr {
+		srcVlf = srcVlf.Elem()
+	}
+	if dstVlf.Type().Kind() != reflect.Struct || srcVlf.Type().Kind() != reflect.Map {
+		return errors.New("des/src is not a struct/map")
+	}
 
-}
-*/
+	//srcVlf.Len()
+	dstFln := dstVlf.Type().NumField()
+	for i := 0; i < dstFln; i++ {
+
+	}
+}*/
