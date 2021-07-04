@@ -26,8 +26,8 @@ type Build struct {
 
 type Variables struct {
 	Name   string `yaml:"name,omitempty" json:"name"`
-	Value  string `yaml:"version,omitempty" json:"version"`
-	Secret string `yaml:"displayName,omitempty" json:"displayName"`
+	Value  string `yaml:"value,omitempty" json:"value"`
+	Secret bool   `yaml:"secret,omitempty" json:"secret"`
 }
 
 type Repository struct {
