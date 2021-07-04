@@ -15,4 +15,5 @@ var (
 	RegHost2 = regexp.MustCompile(`^([\w\.]+)(:\d+)?$`)
 	RegUrl   = regexp.MustCompile(`^(https?:)\/\/([\w\.]+)(:\d+)?`)
 	RegNum   = regexp.MustCompile(`^\d+$`)
+	RegVar   = regexp.MustCompile("\\${{([^}]+)}}")
 )
