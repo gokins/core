@@ -2,8 +2,10 @@ package core
 
 import (
 	"fmt"
+	"github.com/gokins-main/core/common"
 	"github.com/gokins-main/core/utils"
 	"testing"
+	"time"
 )
 
 type testBase1 struct {
@@ -45,4 +47,13 @@ func Test1(t *testing.T) {
 	println(fmt.Sprintf("t1:%v", t1))
 	println(fmt.Sprintf("t2:%v", t2))
 	println(fmt.Sprintf("t2s:%v", t2.Ts))
+}
+
+func Test2(t *testing.T) {
+	conts := "haha${{123}}dede${{456}}lkdsajf${{ oks }}"
+	vls := common.RegVar.FindAllStringSubmatch(conts, -1)
+	for _, zs := range vls {
+		fmt.Println(zs)
+	}
+	time.Sleep(time.Second)
 }
