@@ -57,3 +57,10 @@ func Test2(t *testing.T) {
 	}
 	time.Sleep(time.Second)
 }
+func Test3(t *testing.T) {
+	ts := &testBase1{K: "hahah123"}
+	tsp := *ts
+	tsp.K = "3465"
+	fmt.Println(tsp)
+	fmt.Println(tsp)
+}
