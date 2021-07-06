@@ -64,3 +64,12 @@ func Test3(t *testing.T) {
 	fmt.Println(tsp)
 	fmt.Println(tsp)
 }
+func Test4(t *testing.T) {
+	mp1 := map[string]interface{}{"abc": 123}
+	tests1(mp1)
+	fmt.Println(mp1)
+}
+func tests1(m map[string]interface{}) {
+	m["ttt"] = "123123"
+	m["abc"] = 123123123
+}
