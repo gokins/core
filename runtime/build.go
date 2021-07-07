@@ -60,72 +60,56 @@ type Stage struct {
 }
 
 type Step struct {
-	Id              string            `yaml:"id"`
-	BuildId         string            `yaml:"buildId"`
-	StageId         string            `yaml:"stageId"`
-	Step            string            `yaml:"step"`
-	DisplayName     string            `yaml:"displayName"`
-	Name            string            `yaml:"name"`
-	Env             map[string]string `yaml:"env"`
-	Commands        interface{}       `yaml:"commands"`
-	Status          string            `yaml:"status"`
-	Event           string            `yaml:"event"`
-	Error           string            `yaml:"error"`
-	ExitCode        int               `yaml:"exitCode"`
-	ErrIgnore       bool              `yaml:"errignore"`
-	Started         time.Time         `yaml:"started"`
-	Stopped         time.Time         `yaml:"stopped"`
-	Finished        time.Time         `yaml:"finished"`
-	Version         string            `yaml:"version"`
-	Waits           []string          `yaml:"waits"`
-	Image           string            `yaml:"image"`
-	Artifacts       []*Artifact       `yaml:"artifacts"`
-	DependArtifacts []*DependArtifact `yaml:"dependArtifacts"`
+	Id           string            `yaml:"id"`
+	BuildId      string            `yaml:"buildId"`
+	StageId      string            `yaml:"stageId"`
+	Step         string            `yaml:"step"`
+	DisplayName  string            `yaml:"displayName"`
+	Name         string            `yaml:"name"`
+	Env          map[string]string `yaml:"env"`
+	Commands     interface{}       `yaml:"commands"`
+	Status       string            `yaml:"status"`
+	Event        string            `yaml:"event"`
+	Error        string            `yaml:"error"`
+	ExitCode     int               `yaml:"exitCode"`
+	ErrIgnore    bool              `yaml:"errignore"`
+	Started      time.Time         `yaml:"started"`
+	Stopped      time.Time         `yaml:"stopped"`
+	Finished     time.Time         `yaml:"finished"`
+	Version      string            `yaml:"version"`
+	Waits        []string          `yaml:"waits"`
+	Image        string            `yaml:"image"`
+	Artifacts    []*Artifact       `yaml:"artifacts"`
+	UseArtifacts []*UseArtifact    `yaml:"useArtifacts"`
 }
 
 type Artifact struct {
 	//Id        string    `yaml:"id"`
-	BuildId   string    `yaml:"buildId"`
-	StageId   string    `yaml:"stageId"`
-	JobId     string    `yaml:"stepId"`
-	BuildName string    `yaml:"buildName"`
-	StageName string    `yaml:"stageName"`
-	JobName   string    `yaml:"stepName"`
-	Status    string    `yaml:"status"`
-	Created   time.Time `yaml:"created"`
-	Updated   time.Time `yaml:"updated"`
+	BuildId string `yaml:"buildId"`
+	StageId string `yaml:"stageId"`
+	JobId   string `yaml:"stepId"`
 
-	Name  string `yaml:"name"`
-	Scope string `yaml:"scope"`
-	Path  string `yaml:"path"`
+	Scope      string `yaml:"scope"`      //archive,pipeline,env
+	Repository string `yaml:"repository"` // archive,制品库ID
+	Name       string `yaml:"name"`       //archive,pipeline,env
+	Path       string `yaml:"path"`       //archive,pipeline
 
-	Artifactory string `yaml:"artifactory"`
-	Repository  string `yaml:"repository"`
-
-	Value string `yaml:"value"`
 }
 
-type DependArtifact struct {
+type UseArtifact struct {
 	//Id        string    `yaml:"id"`
-	BuildId   string    `yaml:"buildId"`
-	StageId   string    `yaml:"stageId"`
-	JobId     string    `yaml:"stepId"`
-	BuildName string    `yaml:"buildName"`
-	StageName string    `yaml:"stageName"`
-	JobName   string    `yaml:"stepName"`
-	Status    string    `yaml:"status"`
-	Created   time.Time `yaml:"created"`
-	Updated   time.Time `yaml:"updated"`
+	BuildId string `yaml:"buildId"`
+	StageId string `yaml:"stageId"`
+	JobId   string `yaml:"stepId"`
 
-	Name        string `yaml:"name"`
-	Type        string `yaml:"type"`
-	IsForce     bool   `yaml:"isForce"`
-	Artifactory string `yaml:"artifactory"`
-	Repository  string `yaml:"repository"`
-	Target      string `yaml:"target"`
+	Scope      string `yaml:"scope"`      //archive,pipeline,env
+	Repository string `yaml:"repository"` // archive,制品库ID
+	Name       string `yaml:"name"`       //archive,pipeline,env
+	IsForce    bool   `yaml:"isForce"`
+	Path       string `yaml:"path"` //archive,pipeline
 
-	SourceStage string `yaml:"sourceStage"`
-	SourceJob   string `yaml:"sourceStep"`
+	SourceStage string `yaml:"sourceStage"` //pipeline
+	SourceJob   string `yaml:"sourceStep"`  //pipeline
 
 	Value string `yaml:"value"`
 }
