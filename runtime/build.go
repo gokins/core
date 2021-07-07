@@ -93,7 +93,6 @@ type Artifact struct {
 	Repository string `yaml:"repository"` // archive,制品库ID
 	Name       string `yaml:"name"`       //archive,pipeline,env
 	Path       string `yaml:"path"`       //archive,pipeline
-
 }
 
 type UseArtifact struct {
@@ -110,6 +109,4 @@ type UseArtifact struct {
 
 	SourceStage string `yaml:"sourceStage"` //pipeline
 	SourceJob   string `yaml:"sourceStep"`  //pipeline
-
-	Value string `yaml:"value"`
 }
