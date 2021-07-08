@@ -84,11 +84,6 @@ type Step struct {
 }
 
 type Artifact struct {
-	//Id        string    `yaml:"id"`
-	BuildId string `yaml:"buildId"`
-	StageId string `yaml:"stageId"`
-	JobId   string `yaml:"stepId"`
-
 	Scope      string `yaml:"scope"`      //archive,pipeline,env
 	Repository string `yaml:"repository"` // archive,制品库ID
 	Name       string `yaml:"name"`       //archive,pipeline,env
@@ -96,11 +91,6 @@ type Artifact struct {
 }
 
 type UseArtifact struct {
-	//Id        string    `yaml:"id"`
-	BuildId string `yaml:"buildId"`
-	StageId string `yaml:"stageId"`
-	JobId   string `yaml:"stepId"`
-
 	Scope      string `yaml:"scope"`      //archive,pipeline,env
 	Repository string `yaml:"repository"` // archive,制品库ID
 	Name       string `yaml:"name"`       //archive,pipeline,env
@@ -108,5 +98,5 @@ type UseArtifact struct {
 	Path       string `yaml:"path"` //archive,pipeline
 
 	SourceStage string `yaml:"sourceStage"` //pipeline
-	SourceJob   string `yaml:"sourceStep"`  //pipeline
+	SourceStep  string `yaml:"sourceStep"`  //pipeline
 }
