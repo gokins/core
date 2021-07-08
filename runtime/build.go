@@ -94,8 +94,8 @@ type UseArtifact struct {
 	Scope      string `yaml:"scope"`      //archive,pipeline,env
 	Repository string `yaml:"repository"` // archive,制品库ID
 	Name       string `yaml:"name"`       //archive,pipeline,env
+	Path       string `yaml:"path"`       //archive,pipeline
 	IsForce    bool   `yaml:"isForce"`
-	Path       string `yaml:"path"` //archive,pipeline
 
 	SourceStage string `yaml:"sourceStage"` //pipeline
 	SourceStep  string `yaml:"sourceStep"`  //pipeline
