@@ -3,25 +3,26 @@ package runtime
 import "time"
 
 type Build struct {
-	Id         string                `yaml:"id"`
-	PipelineId string                `yaml:"pipelineId"`
-	Trigger    string                `yaml:"trigger"`
-	Status     string                `yaml:"status"`
-	Ref        string                `yaml:"ref"`
-	Error      string                `yaml:"error"`
-	Event      string                `yaml:"event"`
-	Timestamp  time.Time             `yaml:"timestamp"`
-	Title      string                `yaml:"title"`
-	Message    string                `yaml:"message"`
-	Vars       map[string]*Variables `yaml:"vars"`
-	Started    time.Time             `yaml:"started"`
-	Finished   time.Time             `yaml:"finished"`
-	Created    time.Time             `yaml:"created"`
-	Updated    time.Time             `yaml:"updated"`
-	Before     string                `yaml:"before"`
-	After      string                `yaml:"after"`
-	Repo       *Repository           `yaml:"repo"`
-	Stages     []*Stage              `yaml:"stages"`
+	Id                string                `yaml:"id"`
+	PipelineId        string                `yaml:"pipelineId"`
+	PipelineVersionId string                `yaml:"pipelineVersionId"`
+	Trigger           string                `yaml:"trigger"`
+	Status            string                `yaml:"status"`
+	Ref               string                `yaml:"ref"`
+	Error             string                `yaml:"error"`
+	Event             string                `yaml:"event"`
+	Timestamp         time.Time             `yaml:"timestamp"`
+	Title             string                `yaml:"title"`
+	Message           string                `yaml:"message"`
+	Vars              map[string]*Variables `yaml:"vars"`
+	Started           time.Time             `yaml:"started"`
+	Finished          time.Time             `yaml:"finished"`
+	Created           time.Time             `yaml:"created"`
+	Updated           time.Time             `yaml:"updated"`
+	Before            string                `yaml:"before"`
+	After             string                `yaml:"after"`
+	Repo              *Repository           `yaml:"repo"`
+	Stages            []*Stage              `yaml:"stages"`
 }
 
 type Variables struct {
@@ -95,7 +96,7 @@ type UseArtifact struct {
 	Repository string `yaml:"repository"` // archive,制品库ID
 	Name       string `yaml:"name"`       //archive,pipeline,env
 	Path       string `yaml:"path"`       //archive,pipeline
-	IsForce    bool   `yaml:"isForce"`
+	//IsForce    bool   `yaml:"isForce"`
 
 	SourceStage string `yaml:"sourceStage"` //pipeline
 	SourceStep  string `yaml:"sourceStep"`  //pipeline
