@@ -3,101 +3,103 @@ package runtime
 import "time"
 
 type Build struct {
-	Id                string                `yaml:"id"`
-	PipelineId        string                `yaml:"pipelineId"`
-	PipelineVersionId string                `yaml:"pipelineVersionId"`
-	Trigger           string                `yaml:"trigger"`
-	Status            string                `yaml:"status"`
-	Ref               string                `yaml:"ref"`
-	Error             string                `yaml:"error"`
-	Event             string                `yaml:"event"`
-	Timestamp         time.Time             `yaml:"timestamp"`
-	Title             string                `yaml:"title"`
-	Message           string                `yaml:"message"`
-	Vars              map[string]*Variables `yaml:"vars"`
-	Started           time.Time             `yaml:"started"`
-	Finished          time.Time             `yaml:"finished"`
-	Created           time.Time             `yaml:"created"`
-	Updated           time.Time             `yaml:"updated"`
-	Before            string                `yaml:"before"`
-	After             string                `yaml:"after"`
-	Repo              *Repository           `yaml:"repo"`
-	Stages            []*Stage              `yaml:"stages"`
+	Id                string
+	PipelineId        string
+	PipelineVersionId string
+	Trigger           string
+	Status            string
+	Ref               string
+	Error             string
+	Event             string
+	Timestamp         time.Time
+	Title             string
+	Message           string
+	Vars              map[string]*Variables
+	Started           time.Time
+	Finished          time.Time
+	Created           time.Time
+	Updated           time.Time
+	Before            string
+	After             string
+	Repo              *Repository
+	Stages            []*Stage
 }
 
 type Variables struct {
-	Name   string `yaml:"name,omitempty" json:"name"`
-	Value  string `yaml:"value,omitempty" json:"value"`
-	Secret bool   `yaml:"secret,omitempty" json:"secret"`
+	Name   string
+	Value  string
+	Secret bool
 }
 
 type Repository struct {
-	Name     string `yaml:"name"`
-	Token    string `yaml:"token"`
-	Sha      string `yaml:"sha"`
-	CloneURL string `yaml:"cloneUrl"`
+	Name     string
+	Token    string
+	Sha      string
+	CloneURL string
 }
 
 type Stage struct {
-	Id          string            `yaml:"id"`
-	BuildId     string            `yaml:"buildId"`
-	Name        string            `yaml:"name"`
-	DisplayName string            `yaml:"displayName" `
-	Stage       string            `yaml:"stage"`
-	Status      string            `yaml:"status"`
-	Event       string            `yaml:"event"`
-	Error       string            `yaml:"error"`
-	ExitCode    int               `yaml:"exitCode"`
-	Started     time.Time         `yaml:"started"`
-	Stopped     time.Time         `yaml:"stopped"`
-	Finished    time.Time         `yaml:"finished"`
-	Created     time.Time         `yaml:"created"`
-	Updated     time.Time         `yaml:"updated"`
-	Version     string            `yaml:"version"`
-	OnSuccess   bool              `yaml:"onSuccess"`
-	OnFailure   bool              `yaml:"onFailure"`
-	Labels      map[string]string `yaml:"labels"`
-	Steps       []*Step           `yaml:"steps"`
+	Id          string
+	BuildId     string
+	Name        string
+	DisplayName string
+	Stage       string
+	Status      string
+	Event       string
+	Error       string
+	ExitCode    int
+	Started     time.Time
+	Stopped     time.Time
+	Finished    time.Time
+	Created     time.Time
+	Updated     time.Time
+	Version     string
+	OnSuccess   bool
+	OnFailure   bool
+	Labels      map[string]string
+	Steps       []*Step
 }
 
 type Step struct {
-	Id           string            `yaml:"id"`
-	BuildId      string            `yaml:"buildId"`
-	StageId      string            `yaml:"stageId"`
-	Step         string            `yaml:"step"`
-	DisplayName  string            `yaml:"displayName"`
-	Name         string            `yaml:"name"`
-	Env          map[string]string `yaml:"env"`
-	Commands     interface{}       `yaml:"commands"`
-	Status       string            `yaml:"status"`
-	Event        string            `yaml:"event"`
-	Error        string            `yaml:"error"`
-	ExitCode     int               `yaml:"exitCode"`
-	ErrIgnore    bool              `yaml:"errignore"`
-	Started      time.Time         `yaml:"started"`
-	Stopped      time.Time         `yaml:"stopped"`
-	Finished     time.Time         `yaml:"finished"`
-	Version      string            `yaml:"version"`
-	Waits        []string          `yaml:"waits"`
-	Image        string            `yaml:"image"`
-	Artifacts    []*Artifact       `yaml:"artifacts"`
-	UseArtifacts []*UseArtifact    `yaml:"useArtifacts"`
+	Id           string
+	BuildId      string
+	StageId      string
+	Step         string
+	DisplayName  string
+	Name         string
+	Env          map[string]string
+	Commands     interface{}
+	Status       string
+	Event        string
+	Error        string
+	ExitCode     int
+	ErrIgnore    bool
+	Started      time.Time
+	Stopped      time.Time
+	Finished     time.Time
+	Version      string
+	Waits        []string
+	Image        string
+	Artifacts    []*Artifact
+	UseArtifacts []*UseArtifact
 }
 
 type Artifact struct {
-	Scope      string `yaml:"scope"`      //archive,pipeline,env
-	Repository string `yaml:"repository"` // archive,制品库ID
-	Name       string `yaml:"name"`       //archive,pipeline,env
-	Path       string `yaml:"path"`       //archive,pipeline
+	Scope      string //archive,pipeline,env
+	Repository string // archive,制品库ID
+	Name       string //archive,pipeline,env
+	Path       string //archive,pipeline
 }
 
 type UseArtifact struct {
-	Scope      string `yaml:"scope"`      //archive,pipeline,env
-	Repository string `yaml:"repository"` // archive,制品库ID
-	Name       string `yaml:"name"`       //archive,pipeline,env
-	Path       string `yaml:"path"`       //archive,pipeline
-	//IsForce    bool   `yaml:"isForce"`
+	Scope      string //archive,pipeline,env
+	Repository string // archive,制品库ID
+	Name       string //archive,pipeline,env
+	Path       string //archive,pipeline
+	IsUrl      bool
+	Alias      string
+	//IsForce    bool
 
-	SourceStage string `yaml:"sourceStage"` //pipeline
-	SourceStep  string `yaml:"sourceStep"`  //pipeline
+	SourceStage string //pipeline
+	SourceStep  string //pipeline
 }
