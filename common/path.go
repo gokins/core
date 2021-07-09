@@ -7,4 +7,5 @@ const (
 	PathRunner = "runner"
 	PathArts   = "arts"
 	//PathWork   = "work"
+	PathArtifacts = "artifacts"
 )
