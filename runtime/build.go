@@ -67,6 +67,7 @@ type Step struct {
 	Step         string
 	DisplayName  string
 	Name         string
+	Input        map[string]string
 	Env          map[string]string
 	Commands     interface{}
 	Status       string
