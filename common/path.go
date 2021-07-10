@@ -1,6 +1,7 @@
 package common
 
 const (
+	PathTmp    = "tmp"
 	PathBuild  = "build"
 	PathJobs   = "jobs"
 	PathRepo   = "repo"
