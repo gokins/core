@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/gokins-main/core/common"
 	"github.com/gokins-main/core/utils"
-	"path/filepath"
 	"testing"
 	"time"
 )
@@ -66,6 +65,5 @@ func Test3(t *testing.T) {
 	fmt.Println(tsp)
 }
 func Test4(t *testing.T) {
-	pth := "/dev/"
-	fmt.Println(filepath.Join(pth, "/ok"))
+	fmt.Println(fmt.Sprintf("%t,%t", true, false))
 }
