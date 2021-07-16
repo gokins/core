@@ -6,8 +6,6 @@ import (
 	"path/filepath"
 )
 
-var Debug = false
-
 func InitLog(pth string) {
 	path := filepath.Join(pth, "logs")
 	pmp := loglfshook.PathMap{
