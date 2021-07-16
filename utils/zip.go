@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 )
 
-func Zip(src string, zipPath string,noDir ...bool) error {
+func Zip(src string, zipPath string, noDir ...bool) error {
 	err := os.MkdirAll(filepath.Dir(zipPath), 0755)
 	if err != nil {
 		return err
@@ -34,23 +34,23 @@ func Zip(src string, zipPath string,noDir ...bool) error {
 		return err
 	}
 
-	zipFile(srcAbs, "/", s, w,!(len(noDir)>0&&noDir[0]))
+	zipFile(srcAbs, "", s, w, !(len(noDir) > 0 && noDir[0]))
 	return nil
 
 }
 
-func zipFile(src, path string, fileInfo os.FileInfo, w *zip.Writer,addme bool) error {
+func zipFile(src, path string, fileInfo os.FileInfo, w *zip.Writer, addme bool) error {
 	if fileInfo.IsDir() {
 		files, err := ioutil.ReadDir(src)
 		if err != nil {
 			return err
 		}
 		for _, f := range files {
-			paths:=path
-			if addme{
-				paths=filepath.Join(path, fileInfo.Name())
+			paths := path
+			if addme {
+				paths = filepath.Join(path, fileInfo.Name())
 			}
-			zipFile(filepath.Join(src, f.Name()), paths, f, w,true)
+			zipFile(filepath.Join(src, f.Name()), paths, f, w, true)
 		}
 	} else {
 		file, err := os.Open(src)
