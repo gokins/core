@@ -1,4 +1,4 @@
-module github.com/gokins-main/core
+module github.com/gokins/core
 
 go 1.16
 

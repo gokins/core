@@ -2,8 +2,8 @@ package core
 
 import (
 	"fmt"
-	"github.com/gokins-main/core/common"
-	"github.com/gokins-main/core/utils"
+	"github.com/gokins/core/common"
+	"github.com/gokins/core/utils"
 	"testing"
 	"time"
 )
