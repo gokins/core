@@ -69,7 +69,7 @@ type Step struct {
 	Name         string
 	Input        map[string]string
 	Env          map[string]string
-	NoCopy       bool
+	MustCopy     bool
 	Commands     interface{}
 	Status       string
 	Event        string
