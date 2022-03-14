@@ -70,6 +70,7 @@ type Step struct {
 	Input        map[string]string
 	Env          map[string]string
 	MustCopy     bool
+	RepoPath     string
 	Commands     interface{}
 	Status       string
 	Event        string
