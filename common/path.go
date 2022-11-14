@@ -5,6 +5,7 @@ const (
 	PathBuild  = "build"
 	PathJobs   = "jobs"
 	PathRepo   = "repo"
+	PathCache  = "cache"
 	PathRunner = "runner"
 	PathArts   = "arts"
 	//PathWork   = "work"
